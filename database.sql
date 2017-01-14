@@ -9,13 +9,19 @@ CREATE TABLE events (
 );
 
 CREATE TABLE attendees (
-    id SERIAL PRIMARY KEY,
+    attendeesid SERIAL PRIMARY KEY,
     name varchar(80) NOT NULL,
     events_id integer REFERENCES events
 );
 
 CREATE TABLE items (
-    id SERIAL PRIMARY KEY,
-    attendees_id integer REFERENCES attendees,
+    itemsid SERIAL PRIMARY KEY,
+    events_id integer REFERENCES events,
    	itemname varchar(80)
+);
+
+CREATE TABLE attendees_items (
+    events_id integer REFERENCES events,
+    attendees_id integer REFERENCES attendees,
+    items_id integer REFERENCES items
 );
