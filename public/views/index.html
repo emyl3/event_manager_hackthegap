@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>event manager</title>
+
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+
+    <!-- SCRIPTS -->
+    <script src="scripts/app.module.js" charset="utf-8"></script>
+    <script src="scripts/app.config.js" charset="utf-8"></script>
+    <script src="scripts/index.controller.js" charset="utf-8"></script>
+    <script src="scripts/home.controller.js" charset="utf-8"></script>
+
+    <base href="/">
+  </head>
+
+  <body ng-app="eventApp" ng-controller="IndexController as index">
+    <a href="/home">home</a>
+    <div ng-view>
+    </div>
+
+  </body>
+</html>
