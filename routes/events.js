@@ -11,8 +11,8 @@ router.post('/newEvent', function (req, res) {
         return;
       }
 
-      client.query('INSERT INTO events (type, date, time, location) VALUES ($1, $2, $3, $4) returning *;',
-        [req.body.type, req.body.date, req.body.time, req.body.location],
+      client.query('INSERT INTO events (eventsname, type, date, time, location, contact) VALUES ($1, $2, $3, $4, $5, $6) returning *;',
+        [req.body.eventname, req.body.type, req.body.date, req.body.time, req.body.location, req.body.contact],
         function (err, result) {
           if (err) {
             console.log('Error querying the database', err);

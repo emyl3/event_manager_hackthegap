@@ -1,0 +1,47 @@
+<div class="container">
+  <form clas="row">
+  <div class="form-group">
+    <label for="EventName">Event Name</label>
+    <input type="text" class="form-control" ng-model="newEvent.data.eventname">
+  </div>
+
+  <div class="form-group">
+    <label for="EventType">Type of Event</label>
+    <input type="text" class="form-control" ng-model="newEvent.data.type">
+  </div>
+
+  <div class="form-group">
+    <label for="EventType">Date of Event</label>
+    <input type="text" class="form-control" ng-model="newEvent.data.date">
+  </div>
+
+  <div class="form-group">
+    <label for="EventType">Start Time</label>
+    <input type="text" class="form-control" ng-model="newEvent.data.time">
+  </div>
+
+  <div class="form-group">
+    <label for="EventType">Location</label>
+    <input type="text" class="form-control" ng-model="newEvent.data.location">
+  </div>
+
+  <div class="form-group">
+    <label for="EventType">Contact Information</label>
+    <input type="text" class="form-control" ng-model="newEvent.data.contact">
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-alert" ng-click="newEvent.showContact()">Add Contacts</button>
+    <div ng-show="newEvent.contactListStatus">
+      <ul>
+        <li ng-repeat="people in newEvent.contacts">
+          {{people.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" ng-click="newEvent.submit(newEvent.data)">Submit</button>
+</form>
+
+</div>

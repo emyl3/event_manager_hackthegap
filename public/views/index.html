@@ -4,20 +4,57 @@
     <meta charset="utf-8">
     <title>event manager</title>
 
+    <!-- Required meta tags always come first -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
     <script src="vendors/angular.min.js" charset="utf-8"></script>
     <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+
+    <!-- ANGULAR UI BOOTSTRAP-->
+    <script src="vendors/angular-animate.min.js" charset="utf-8"></script>
+    <script src="vendors/ui-bootstrap-tpls.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="vendors/ui-bootstrap-csp.css">
 
     <!-- SCRIPTS -->
     <script src="scripts/app.module.js" charset="utf-8"></script>
     <script src="scripts/app.config.js" charset="utf-8"></script>
     <script src="scripts/index.controller.js" charset="utf-8"></script>
     <script src="scripts/home.controller.js" charset="utf-8"></script>
+    <script src="scripts/newEvent.controller.js" charset="utf-8"></script>
+    <script src="scripts/events.controller.js" charset="utf-8"></script>
+    <script src="scripts/service/events.service.js" charset="utf-8"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/styles_team7.css">
 
     <base href="/">
   </head>
 
   <body ng-app="eventApp" ng-controller="IndexController as index">
-    <a href="/home">home</a>
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Event Creator</a>
+    </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="/newEvent">Create Event</a></li>
+          <li><a href="/existingEvents">Events</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
     <div ng-view>
     </div>
 
