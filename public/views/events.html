@@ -9,6 +9,23 @@
       <button type="submit" class="btn btn-primary" ng-click="ctrl.openEvent(ctrl.selection)">View</button>
   </form>
   <div ng-hide="ctrl.eventsSelect">
-    hi
+    <div class="row">
+      <div class="col-xs-12" ng-repeat="event in ctrl.eventInfo">
+        <h1>{{event.eventsname}}</h1>
+        <h2>When: {{event.date}}</h2>
+        <p>Time: {{event.time}}</p>
+        <p>Location: {{event.location}}</p>
+        <p>Contact: {{event.contact}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        hi
+      </div>
+      <div class="col-xs-12 col-md-6">
+        hi
+      </div>
+    </div>
   </div>
 </div>

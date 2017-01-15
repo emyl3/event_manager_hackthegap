@@ -14,8 +14,10 @@ function EventsController(EventsService) {
 
   ctrl.openEvent = function(data) {
     ctrl.eventsSelect = false;
-    console.log(data);
-  }
+    EventsService.getEvent(data).then(function(res) {
+      ctrl.eventInfo = res;
+    });
+  };
 
   getEvents();
 }

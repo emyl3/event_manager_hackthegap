@@ -24,7 +24,12 @@ function EventsService($http) {
   }
 
   function getEvent(data) {
-    return $http.get('/events/eventInfo', data)
+    console.log(data);
+    return $http.get('/events/eventInfo', {
+      params: {
+        eventId: data,
+      },
+    })
     .then(function (response) {
       return response.data;
     });
@@ -34,5 +39,6 @@ function EventsService($http) {
     postEvent: postEvent,
     getAttendees: getAttendees,
     getAllEvents: getAllEvents,
+    getEvent: getEvent,
   };
 }
