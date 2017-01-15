@@ -35,10 +35,31 @@ function EventsService($http) {
     });
   }
 
+  function postItem(data) {
+    return $http.post('/items/newItem', data)
+    .then(function (response) {
+      return response;
+    });
+  }
+
+  function getItems(data) {
+    console.log(data);
+    return $http.get('/items/allItems', {
+      params: {
+        eventId: data,
+      },
+    })
+    .then(function (response) {
+      return response.data;
+    });
+  }
+
   return {
     postEvent: postEvent,
     getAttendees: getAttendees,
     getAllEvents: getAllEvents,
     getEvent: getEvent,
+    postItem: postItem,
+    getItems: getItems,
   };
 }

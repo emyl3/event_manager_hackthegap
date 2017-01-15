@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 
 const events = require('./routes/events');
 const attendees = require('./routes/attendees');
+const items = require('./routes/items');
+
 
 var app = express();
 
@@ -16,6 +18,12 @@ app.get('/', function (req, res) {
 
 app.use('/events', events);
 app.use('/attendees', attendees);
+app.use('/items', items);
+
+
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'public/views/index.html'));
+})
 
 var port = process.env.PORT || 3000;
 app.listen(port, function () {

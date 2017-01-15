@@ -17,7 +17,7 @@ router.post('/newEvent', function (req, res) {
           if (err) {
             console.log('Error querying the database', err);
             res.sendStatus(500);
-            return;
+            return result;
           }
 
           console.log('Got rows from the database: ', result.rows);

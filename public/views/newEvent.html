@@ -1,5 +1,6 @@
 <div class="container">
-  <form class="row">
+  <h2>Create an Event</h2>
+  <form ng-hide="newEvent.nextForm">
   <div class="form-group">
     <label for="EventName">Event Name</label>
     <input type="text" class="form-control" ng-model="newEvent.data.eventname">
@@ -43,5 +44,20 @@
 
   <button type="submit" class="btn btn-primary" ng-click="newEvent.submit(newEvent.data)">Submit</button>
 </form>
+
+<div ng-show="newEvent.nextForm">
+<form>
+  <div class="form-group" ng-repeat="eventid in newEvent.eventsId">
+    <label for="Item">New Item Name</label>
+    <input type="text" class="form-control" ng-model="newEvent.itemname">
+    <button type="submit" class="btn btn-primary" ng-click="newEvent.submitItem(newEvent.itemname, eventid.id)">Submit</button>
+  </div>
+</form>
+
+<h2>Items To Bring</h2>
+<ul>
+  <li ng-repeat="items in newEvent.itemsObject">{{items.itemname}}</li>
+</ul>
+</div>
 
 </div>

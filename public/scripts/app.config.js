@@ -10,6 +10,8 @@ function configSettings($routeProvider, $locationProvider) {
   }).when('/yourEvents', {
     templateUrl: 'views/events.html',
     controller: 'EventsController as ctrl',
+  }).otherwise({
+    redirectTo: '/',
   });
 
   $locationProvider.html5Mode(true);
