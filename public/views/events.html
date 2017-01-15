@@ -26,10 +26,31 @@
     <div class="row">
       <div class="col-xs-12 col-md-6">
         <h2>Who's Going?</h2>
+        <p ng-repeat="attendee in ctrl.contacts">{{attendee.name}}</p>
         <h4>Can't Make It</h4>
+        <p>None</p>
       </div>
       <div class="col-xs-12 col-md-6">
         <h2>I Can Bring...</h2>
+        <div class="row">
+          <div class="col-xs-12 col-md-12">
+            <form ng-repeat="item in ctrl.itemsList | orderBy: itemname">
+              <div class="form-group">
+                <label for="eventSelection">{{item.itemname}}</label>
+                <select class="form-control" id="eventSelection" ng-model="selection[$index]">
+                  <option ng-repeat="contact in ctrl.contacts">{{contact.name}}</option>
+                </select>
+              </div>
+                <button type="submit" class="btn btn-primary" ng-click="ctrl.savePerson(selection[$index])">Confirm</button>
+                <br>
+                  <hr class="style1">
+                </br>
+            </form>
+
+            <!-- this will be a form -->
+            <!-- make a label here with the item name and  a select with people's names -->
+          </div>
+        </div>
       </div>
     </div>
   </div>
