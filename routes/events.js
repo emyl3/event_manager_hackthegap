@@ -69,7 +69,6 @@ router.get('/allEvents', function (req, res) {
       }
 
       client.query('SELECT * FROM events',
-        [eventId],
         function (err, result) {
           if (err) {
             console.log('Error querying the database', err);
@@ -87,35 +86,35 @@ router.get('/allEvents', function (req, res) {
   });
 });
 
-// //gets one event info with event id
-// router.get('/eventInfo', function (req, res) {
-//   var eventId = req.query.eventId;
-//   pool.connect(function (err, client, done) {
-//     try {
-//       if (err) {
-//         console.log('Error connecting to the database', err);
-//         res.sendStatus(500);
-//         return;
-//       }
-//
-//       client.query('SELECT type, date, time, location FROM events JOIN attendees ON events.id = attendees.events_id WHERE events.id = $1;',
-//         [eventId],
-//         function (err, result) {
-//           if (err) {
-//             console.log('Error querying the database', err);
-//             res.sendStatus(500);
-//             return;
-//           }
-//
-//           console.log('Got rows from the database: ', result.rows);
-//           res.send(result.rows);
-//         });
-//
-//     } finally {
-//       done();
-//     }
-//   });
-// });
+//gets one event info with event id
+router.get('/eventInfo', function (req, res) {
+  var eventId = req.query.eventId;
+  pool.connect(function (err, client, done) {
+    try {
+      if (err) {
+        console.log('Error connecting to the database', err);
+        res.sendStatus(500);
+        return;
+      }
+
+      client.query('SELECT * FROM events WHERE events.id = $1;',
+        [eventId],
+        function (err, result) {
+          if (err) {
+            console.log('Error querying the database', err);
+            res.sendStatus(500);
+            return;
+          }
+
+          console.log('Got rows from the database: ', result.rows);
+          res.send(result.rows);
+        });
+
+    } finally {
+      done();
+    }
+  });
+});
 //
 // //gets event items with eventID
 // router.get('/eventItems', function (req, res) {

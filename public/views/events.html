@@ -1,0 +1,14 @@
+<div class="container">
+  <form ng-show="ctrl.eventsSelect">
+    <div class="form-group">
+      <label for="eventSelection">Choose Your Event</label>
+      <select class="form-control" id="eventSelection" ng-model="ctrl.selection">
+        <option ng-repeat="event in ctrl.eventObject | orderBy: 'eventsname'" ng-value="event.id">{{event.eventsname}}</option>
+      </select>
+    </div>
+      <button type="submit" class="btn btn-primary" ng-click="ctrl.openEvent(ctrl.selection)">View</button>
+  </form>
+  <div ng-hide="ctrl.eventsSelect">
+    hi
+  </div>
+</div>
